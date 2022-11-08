@@ -3,7 +3,6 @@ package com.example.pokedex.services;
 import com.example.pokedex.controllers.dtos.request.CreatePokemonRequest;
 import com.example.pokedex.controllers.dtos.request.UpdatePokemonRequest;
 import com.example.pokedex.controllers.dtos.response.BaseResponse;
-import com.example.pokedex.controllers.dtos.response.CreatePokemonResponse;
 import com.example.pokedex.controllers.dtos.response.GetPokemonResponse;
 import com.example.pokedex.controllers.dtos.response.UpdatePokemonResponse;
 import com.example.pokedex.entities.Pokemon;
@@ -57,6 +56,16 @@ public class PokemonServiceImpl implements IPokemonService {
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Pokemon FindOneAndEnsurePicture(Long id) {
+        return repository.findById(id).orElseThrow(()->new RuntimeException("El pokemon no se encontro"));
+    }
+
+    @Override
+    public Pokemon save(Pokemon pokemon) {
+        return repository.save(pokemon);
     }
 
     public Pokemon to(CreatePokemonRequest request) {

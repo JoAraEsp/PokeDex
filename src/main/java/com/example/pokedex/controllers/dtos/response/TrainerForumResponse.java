@@ -8,9 +8,9 @@ import lombok.Setter;
 public class TrainerForumResponse {
     private Long id;
 
-    private String name;
-
     private String age;
+
+    private String name;
 
     private String category;
 
@@ -19,4 +19,6 @@ public class TrainerForumResponse {
     private String forumsTopic;
 
     private String forumsId;
+
+    private String leaguesName;
 }

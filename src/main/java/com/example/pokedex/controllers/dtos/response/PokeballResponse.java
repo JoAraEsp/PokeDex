@@ -13,6 +13,4 @@ public class PokeballResponse {
     private String level;
 
     private String recommendation;
-
-    private String image;
 }

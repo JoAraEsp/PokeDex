@@ -20,8 +20,6 @@ public class Pokeball {
 
     private String recommendation;
 
-    private String image;
-
     @OneToOne
     private Pokemon pokemon;
 }

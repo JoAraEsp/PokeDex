@@ -20,8 +20,6 @@ public class League {
 
     private String region;
 
-    private String image;
-
     @OneToMany(mappedBy = "league")
     private List<TrainersLeague> trainersLeagues;
 }

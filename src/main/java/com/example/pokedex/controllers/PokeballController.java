@@ -2,7 +2,10 @@ package com.example.pokedex.controllers;
 
 import com.example.pokedex.controllers.dtos.request.CreatePokeballRequest;
 import com.example.pokedex.controllers.dtos.request.UpdatePokeballRequest;
-import com.example.pokedex.controllers.dtos.response.*;
+import com.example.pokedex.controllers.dtos.response.CreatePokeballResponse;
+import com.example.pokedex.controllers.dtos.response.GetPokeballResponse;
+import com.example.pokedex.controllers.dtos.response.PokeballResponse;
+import com.example.pokedex.controllers.dtos.response.UpdatePokeballResponse;
 import com.example.pokedex.services.PokeballServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

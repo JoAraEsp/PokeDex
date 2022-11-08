@@ -2,10 +2,10 @@ package com.example.pokedex.services;
 
 import com.example.pokedex.controllers.dtos.request.CreateForumRequest;
 import com.example.pokedex.controllers.dtos.request.UpdateForumRequest;
-import com.example.pokedex.controllers.dtos.request.UpdateLeagueRequest;
-import com.example.pokedex.controllers.dtos.response.*;
+import com.example.pokedex.controllers.dtos.response.BaseResponse;
+import com.example.pokedex.controllers.dtos.response.GetForumResponse;
+import com.example.pokedex.controllers.dtos.response.UpdateForumResponse;
 import com.example.pokedex.entities.Forum;
-import com.example.pokedex.entities.League;
 import com.example.pokedex.repositories.IForumRepository;
 import com.example.pokedex.services.interfaces.IForumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +37,6 @@ public class ForumServiceImpl implements IForumService {
     }
 
     @Override
-    public UpdateForumResponse update(UpdateForumRequest request, Long id) {
-        Forum forum = find(id);
-        forum.setTopic(request.getTopic());
-        forum.setHour(request.getHour());
-        forum.setDate(request.getDate());
-        repository.save(forum);
-        return fromUpdate(forum);
-    }
-
-    @Override
     public List<GetForumResponse> list() {
         return repository.findAll()
                 .stream()
@@ -59,6 +49,15 @@ public class ForumServiceImpl implements IForumService {
         repository.deleteById(id);
     }
 
+    @Override
+    public UpdateForumResponse update(UpdateForumRequest request, Long id) {
+        Forum forum = find(id);
+        forum.setTopic(request.getTopic());
+        forum.setDate(request.getDate());
+        forum.setHour(request.getHour());
+        repository.save(forum);
+        return fromUpdate(forum);
+    }
 
 
     public GetForumResponse from(Forum forum) {

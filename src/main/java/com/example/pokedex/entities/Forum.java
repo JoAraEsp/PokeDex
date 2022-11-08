@@ -4,9 +4,8 @@ package com.example.pokedex.entities;
 import com.example.pokedex.entities.pivots.TrainersForum;
 import lombok.Getter;
 import lombok.Setter;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
