@@ -10,6 +10,4 @@ public class GetLeagueResponse {
     private String name;
 
     private String region;
-
-    private String image;
 }

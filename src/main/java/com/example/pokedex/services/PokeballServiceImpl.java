@@ -2,7 +2,10 @@ package com.example.pokedex.services;
 
 import com.example.pokedex.controllers.dtos.request.CreatePokeballRequest;
 import com.example.pokedex.controllers.dtos.request.UpdatePokeballRequest;
-import com.example.pokedex.controllers.dtos.response.*;
+import com.example.pokedex.controllers.dtos.response.CreatePokeballResponse;
+import com.example.pokedex.controllers.dtos.response.GetPokeballResponse;
+import com.example.pokedex.controllers.dtos.response.PokeballResponse;
+import com.example.pokedex.controllers.dtos.response.UpdatePokeballResponse;
 import com.example.pokedex.entities.Pokeball;
 import com.example.pokedex.entities.projections.PokeballProjections;
 import com.example.pokedex.repositories.IPokeballRepository;
@@ -68,7 +71,6 @@ public class PokeballServiceImpl implements IPokeballService {
         response.setName(pokeball.getName());
         response.setLevel(pokeball.getLevel());
         response.setRecommendation(pokeball.getRecommendation());
-        response.setImage(pokeball.getImage());
         return response;
     }
 

@@ -10,6 +10,4 @@ public class CreateLeagueResponse {
     private String name;
 
     private String region;
-
-    private String image;
 }

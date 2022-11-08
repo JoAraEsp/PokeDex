@@ -12,6 +12,4 @@ public class CreatePokeballResponse {
     private String level;
 
     private String recommendation;
-
-    private String image;
 }

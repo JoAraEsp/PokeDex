@@ -11,6 +11,4 @@ public class CreateLeagueRequest {
     private String name;
     @NotBlank
     private String region;
-
-    private String image;
 }

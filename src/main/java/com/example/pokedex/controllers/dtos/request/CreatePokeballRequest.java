@@ -13,6 +13,4 @@ public class CreatePokeballRequest {
     private String level;
 
     private String recommendation;
-
-    private String image;
 }

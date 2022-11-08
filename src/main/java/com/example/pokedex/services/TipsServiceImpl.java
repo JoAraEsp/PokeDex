@@ -2,11 +2,11 @@ package com.example.pokedex.services;
 
 import com.example.pokedex.controllers.dtos.request.CreateTipsRequest;
 import com.example.pokedex.controllers.dtos.request.UpdateTipsRequest;
-import com.example.pokedex.controllers.dtos.response.*;
-import com.example.pokedex.entities.Skill;
+import com.example.pokedex.controllers.dtos.response.BaseResponse;
+import com.example.pokedex.controllers.dtos.response.GetTipsResponse;
+import com.example.pokedex.controllers.dtos.response.TipsResponse;
+import com.example.pokedex.controllers.dtos.response.UpdateTipsResponse;
 import com.example.pokedex.entities.Tips;
-import com.example.pokedex.entities.projections.PokeballProjections;
-import com.example.pokedex.entities.projections.SkillProjections;
 import com.example.pokedex.entities.projections.TipsProjections;
 import com.example.pokedex.repositories.ITipsRepository;
 import com.example.pokedex.services.interfaces.ITipsService;
@@ -62,6 +62,16 @@ public class TipsServiceImpl implements ITipsService {
         List<TipsProjections> tips = repository.listAllTrainersByPokemonId(trainersId);
         return tips.stream().map(this::from).collect(Collectors.toList());
         }
+
+    @Override
+    public Tips FindOneAndEnsurePicture(Long id) {
+        return repository.findById(id).orElseThrow(()->new RuntimeException("El tip no se encontro"));
+
+    }
+
+    public Tips save(Tips tips) {
+        return repository.save(tips);
+    }
 
     private TipsResponse from (TipsProjections tips){
         TipsResponse response = new TipsResponse();

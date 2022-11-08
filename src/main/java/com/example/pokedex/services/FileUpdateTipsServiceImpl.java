@@ -8,9 +8,9 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.example.pokedex.entities.Trainer;
-import com.example.pokedex.services.interfaces.IFileService;
-import com.example.pokedex.services.interfaces.ITrainerService;
+import com.example.pokedex.entities.Tips;
+import com.example.pokedex.services.interfaces.IFileUpdateTipsService;
+import com.example.pokedex.services.interfaces.ITipsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,12 +19,10 @@ import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 @Service
-public class FileServiceImpl implements IFileService {
-
+public class FileUpdateTipsServiceImpl implements IFileUpdateTipsService {
     @Autowired
-    private ITrainerService TrainerService;
+    private ITipsService TipsService;
 
     private AmazonS3 s3client;
 
@@ -36,8 +34,8 @@ public class FileServiceImpl implements IFileService {
 
     private String SECRET_KEY = "7brU7D2UTJkxcKqSREDZWsrJefZG45FiAx1ztQ+v";
 
-    @Override
-    public String upload(MultipartFile multipartFile,Long idTrainer) {
+
+    public String upload(MultipartFile multipartFile, Long idTips) {
         String fileUrl = "";
 
         try {
@@ -45,7 +43,7 @@ public class FileServiceImpl implements IFileService {
 
             String fileName = generateFileName(multipartFile);
 
-            fileUrl = "https://" + BUCKET_NAME + "." + ENDPOINT_URL + "/" +fileName;
+            fileUrl = "https://" + BUCKET_NAME + "." + ENDPOINT_URL +"/" +fileName;
 
             uploadFileToS3Bucket(fileName, file);
 
@@ -55,15 +53,15 @@ public class FileServiceImpl implements IFileService {
             e.printStackTrace();
         }
 
-        updateTrainerImage(fileUrl,idTrainer);
+        updateTrainerImage(fileUrl,idTips);
 
         return fileUrl;
     }
 
-    private void updateTrainerImage(String ImageUrl,Long idTrainer){
-        Trainer trainer = TrainerService.FindOneAndEnsurePicture(idTrainer);
-        trainer.setImage(ImageUrl);
-        TrainerService.save(trainer);
+    private void updateTrainerImage(String ImageUrl,Long idTips){
+        Tips tips = TipsService.FindOneAndEnsurePicture(idTips);
+        tips.setImage(ImageUrl);
+        TipsService.save(tips);
     }
 
     private File convertMultiPartToFile(MultipartFile file) throws IOException {

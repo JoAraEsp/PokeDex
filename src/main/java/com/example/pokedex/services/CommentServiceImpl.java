@@ -2,8 +2,9 @@ package com.example.pokedex.services;
 
 import com.example.pokedex.controllers.dtos.request.CreateCommentRequest;
 import com.example.pokedex.controllers.dtos.request.UpdateCommentRequest;
-import com.example.pokedex.controllers.dtos.response.*;
-import com.example.pokedex.controllers.exceptions.UpchiapasException;
+import com.example.pokedex.controllers.dtos.response.BaseResponse;
+import com.example.pokedex.controllers.dtos.response.GetCommentResponse;
+import com.example.pokedex.controllers.dtos.response.UpdateCommentResponse;
 import com.example.pokedex.entities.Comment;
 import com.example.pokedex.repositories.ICommentRepository;
 import com.example.pokedex.services.interfaces.ICommentService;

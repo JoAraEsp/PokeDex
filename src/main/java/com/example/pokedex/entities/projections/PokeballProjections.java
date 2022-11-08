@@ -8,6 +8,4 @@ public interface PokeballProjections {
     String getLevel();
 
     String getRecommendation();
-
-    String getImage();
 }

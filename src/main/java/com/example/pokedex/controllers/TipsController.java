@@ -2,7 +2,10 @@ package com.example.pokedex.controllers;
 
 import com.example.pokedex.controllers.dtos.request.CreateTipsRequest;
 import com.example.pokedex.controllers.dtos.request.UpdateTipsRequest;
-import com.example.pokedex.controllers.dtos.response.*;
+import com.example.pokedex.controllers.dtos.response.BaseResponse;
+import com.example.pokedex.controllers.dtos.response.GetTipsResponse;
+import com.example.pokedex.controllers.dtos.response.TipsResponse;
+import com.example.pokedex.controllers.dtos.response.UpdateTipsResponse;
 import com.example.pokedex.services.interfaces.ITipsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,4 @@
 package com.example.pokedex.entities.projections;
-
 public interface TrainerForumProjections {
     Long getId();
 

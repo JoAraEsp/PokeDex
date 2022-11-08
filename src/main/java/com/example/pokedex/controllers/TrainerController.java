@@ -3,7 +3,6 @@ package com.example.pokedex.controllers;
 import com.example.pokedex.controllers.dtos.request.CreateTrainerRequest;
 import com.example.pokedex.controllers.dtos.request.UpdateTrainerRequest;
 import com.example.pokedex.controllers.dtos.response.BaseResponse;
-import com.example.pokedex.controllers.dtos.response.CreateTrainerResponse;
 import com.example.pokedex.controllers.dtos.response.GetTrainerResponse;
 import com.example.pokedex.controllers.dtos.response.UpdateTrainerResponse;
 import com.example.pokedex.services.TrainerServiceImpl;

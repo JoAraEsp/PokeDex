@@ -2,7 +2,9 @@ package com.example.pokedex.controllers;
 
 import com.example.pokedex.controllers.dtos.request.CreateForumRequest;
 import com.example.pokedex.controllers.dtos.request.UpdateForumRequest;
-import com.example.pokedex.controllers.dtos.response.*;
+import com.example.pokedex.controllers.dtos.response.BaseResponse;
+import com.example.pokedex.controllers.dtos.response.GetForumResponse;
+import com.example.pokedex.controllers.dtos.response.UpdateForumResponse;
 import com.example.pokedex.services.interfaces.IForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
